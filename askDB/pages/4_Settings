@@ -1,9 +1,0 @@
-import streamlit as st
-
-st.sidebar.markdown(
-    f"""
-Here you can configure:
-- open ai key
-    """
-)
-st.markdown("# OpenAI Key")
