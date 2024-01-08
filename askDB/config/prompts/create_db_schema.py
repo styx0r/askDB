@@ -19,8 +19,7 @@ example_format = f"""
 - **Additional Context**: This schema is part of a human resources management system.
 """
 
-
-prompt = f"""
+general = f"""
 I possess a PostgreSQL database and am seeking to create an exceptionally detailed description of this database.
 This comprehensive description is vital to facilitate the effective utilization of a Language Learning Model (LLM)
 when interacting with and performing tasks related to the database. 
@@ -30,10 +29,17 @@ It starts with START, followed by the format example and ends with END:
 START
 {example_format}
 END
+"""
 
-Can you provide SQL statements to fetch the necessary information
+sql_prompt = f"""
+{general}
+
+Please provide SQL statements to fetch the necessary information
 from the database with the following output format:
 'query 1': 'first query here',
 'query 2': 'second query here',
 ...
+"""
+
+prompt = f"""
 """
