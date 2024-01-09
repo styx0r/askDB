@@ -32,13 +32,11 @@ END
 """
 
 sql_prompt = f"""
-{general}
-
-Please provide SQL statements to fetch the necessary information
-from the database with the following output format:
-'query 1': 'first query here',
-'query 2': 'second query here',
-...
+Generate SQL statements to extract a detailed description of a PostgreSQL database. Use 'YOUR_DATABASE' as the database name. The output should be in the following JSON format:
+{{
+  "queries": ["sql_1", "sql_2", ..., "sql_n"]
+}}
+Do not include explanatory texts, just the SQL queries.
 """
 
 prompt = f"""
