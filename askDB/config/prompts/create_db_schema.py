@@ -1,3 +1,5 @@
+from common.constants import DB_PLACEHOLDER
+
 example_format = f"""
 - **Table Name**: Employees
   - **Description**: This table stores employee details.
@@ -32,7 +34,7 @@ END
 """
 
 sql_prompt = f"""
-Generate SQL statements to extract a detailed description of a PostgreSQL database. Use 'YOUR_DATABASE' as the database name. The output should be in the following JSON format:
+Generate SQL statements to extract a detailed description of a PostgreSQL database. Use '{DB_PLACEHOLDER}' as the database name. The output should be in the following JSON format:
 {{
   "queries": ["sql_1", "sql_2", ..., "sql_n"]
 }}
