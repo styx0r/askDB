@@ -9,7 +9,7 @@ def truncate(text: str, length=300) -> str:
 
 
 def replace_db_placeholder(queries: List[str]):
-    [
+    return [
         q.replace(
             DB_PLACEHOLDER,
             st.secrets["connections"][st.session_state["env"]]["database"],

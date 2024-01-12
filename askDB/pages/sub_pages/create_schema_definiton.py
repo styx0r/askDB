@@ -8,6 +8,8 @@ from common.db import execute_sql
 from openai_integration.request import chat_completion
 from config.prompts.create_db_schema import sql_prompt
 
+import logging
+
 
 def display():
     st.title("Create Schema Definition")
@@ -17,15 +19,18 @@ def display():
     queries = replace_db_placeholder(queries)
 
     st.markdown("Executing SQL queries and collecting database information ...")
-    # ToDo: change this to dict with query as key and result as value
-    queries_results = []
+    queries_results = {}
     for query in queries:
-        # ToDo: Error handling in case the query is not executable on the database
-        queries_results.append(execute_sql(query))
+        try:
+            queries_results[query] = execute_sql(query)
+        except Exception as e:
+            logging.warning(
+                f"The follwoing query raised the following exception:\n Query: {query}\n Exception: {e}"
+            )
 
     st.markdown("Reading data base information ...")
-    sql_statements = chat_completion(user_message=sql_prompt)
-    sql_statements
+    # ToDo create query to generate the database information to store.
+    chat_completion(user_message=None)
 
     st.markdown("Suggestion based on your data:")
 
