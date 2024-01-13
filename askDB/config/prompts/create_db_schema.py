@@ -24,7 +24,12 @@ example_format = f"""
 sql_prompt_system = "You are a skilled SQL analyst. Focus on generating precise SQL statements for database analysis. Avoid providing explanations unless explicitly requested."
 
 sql_prompt = f"""
-Generate SQL statements to extract a detailed description of a PostgreSQL database. Use '{DB_PLACEHOLDER}' as the database name. The output should be in the following JSON format:
+Generate SQL statements to extract the following Information of a PostgreSQL database:
+1. all table names
+2. all column names
+3. all column types, e.g. VARCHAR, Primary Key, Foreign Key
+
+Use '{DB_PLACEHOLDER}' as the database name. The output should be in the following JSON format:
 {{
   "queries": ["sql_1", "sql_2", ..., "sql_n"]
 }}
