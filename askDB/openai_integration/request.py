@@ -4,10 +4,9 @@ import json
 client = OpenAI()
 
 DEFAULT_MODEL = "gpt-4-1106-preview"
-CONTENT_SYSTEM = "You are a skilled SQL analyst. Focus on generating precise SQL statements for database analysis. Avoid providing explanations unless explicitly requested."
 
 
-def chat_completion(user_message, content_system=CONTENT_SYSTEM, model=DEFAULT_MODEL):
+def chat_completion(user_message, content_system, model=DEFAULT_MODEL):
     completion = client.chat.completions.create(
         model=model,
         messages=[
